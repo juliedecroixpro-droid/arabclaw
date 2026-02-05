@@ -2,142 +2,239 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Lateef:wght@400;700&display=swap');
+
 :root {
-  --background: #000000;
-  --foreground: #ffffff;
-  --primary: #ef4444;
-  --secondary: #06b6d4;
-  --gold: #fbbf24;
-  --emerald: #10b981;
+  --bg-dark: #0a0e1a;
+  --cobalt: #1e40af;
+  --emerald: #059669;
+  --gold: #d97706;
+  --ivory: #fef3c7;
+  --burgundy: #7c2d12;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  color: var(--ivory);
+  background: var(--bg-dark);
+  font-family: 'Noto Sans Arabic', -apple-system, sans-serif;
 }
 
-/* RTL support */
 [dir="rtl"] {
   direction: rtl;
 }
 
-/* Arabic fonts */
-.font-arabic {
-  font-family: 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+.font-arabic-title {
+  font-family: 'Amiri', 'Noto Sans Arabic', serif;
+  font-weight: 700;
 }
 
-/* OpenClaw gradient + Arabic gold touches */
-.gradient-bg {
-  background: radial-gradient(ellipse at top right, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
-              radial-gradient(ellipse at top left, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
-              radial-gradient(ellipse at bottom, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
-}
-
-/* Arabic geometric pattern overlay */
-.arabic-pattern {
+/* Andalusian Zellige Pattern Background */
+.zellige-bg {
+  background-color: #0a0e1a;
   background-image: 
-    repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(251, 191, 36, 0.03) 35px, rgba(251, 191, 36, 0.03) 70px),
-    repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(16, 185, 129, 0.03) 35px, rgba(16, 185, 129, 0.03) 70px);
-}
-
-/* Feature card with Arabic border accent */
-.feature-card {
-  background: rgba(17, 24, 39, 0.5);
-  border: 1px solid rgba(75, 85, 99, 0.3);
+    radial-gradient(circle at 25% 25%, rgba(30, 64, 175, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(5, 150, 105, 0.15) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(217, 119, 6, 0.08) 0%, transparent 80%);
   position: relative;
-  transition: all 0.3s ease;
 }
 
-.feature-card::before {
+.zellige-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 80px, rgba(217, 119, 6, 0.03) 80px, rgba(217, 119, 6, 0.03) 160px),
+    repeating-linear-gradient(-45deg, transparent, transparent 80px, rgba(5, 150, 105, 0.03) 80px, rgba(5, 150, 105, 0.03) 160px);
+  pointer-events: none;
+}
+
+/* Moroccan Arch Border */
+.arch-border {
+  position: relative;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(30, 64, 175, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 1rem;
+}
+
+.arch-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(135deg, var(--cobalt), var(--emerald), var(--gold));
+  border-radius: 1rem;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.arch-border::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  border-radius: 2px;
+}
+
+/* Andalusian Card */
+.andalusian-card {
+  background: linear-gradient(165deg, rgba(30, 64, 175, 0.15) 0%, rgba(10, 14, 26, 0.8) 50%, rgba(5, 150, 105, 0.15) 100%);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(217, 119, 6, 0.2);
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.andalusian-card::before {
   content: '';
   position: absolute;
   top: 0;
   right: 0;
-  width: 4px;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(251, 191, 36, 0.5), rgba(16, 185, 129, 0.5));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  border-radius: 0 8px 8px 0;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(30%, -30%);
 }
 
-[dir="rtl"] .feature-card::before {
-  right: auto;
-  left: 0;
-  border-radius: 8px 0 0 8px;
+.andalusian-card:hover {
+  border-color: rgba(217, 119, 6, 0.5);
+  box-shadow: 
+    0 0 30px rgba(217, 119, 6, 0.2),
+    0 0 60px rgba(5, 150, 105, 0.1);
+  transform: translateY(-4px);
 }
 
-.feature-card:hover::before {
-  opacity: 1;
+/* Geometric Islamic Pattern */
+.islamic-pattern {
+  background-image: 
+    url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l15 15-15 15-15-15L30 0zm0 30l15 15-15 15-15-15L30 30z' fill='%23d97706' fill-opacity='0.05'/%3E%3C/svg%3E");
 }
 
-.feature-card:hover {
-  border-color: rgba(251, 191, 36, 0.4);
-  background: rgba(17, 24, 39, 0.8);
-  box-shadow: 0 0 30px rgba(251, 191, 36, 0.1);
+/* Calligraphic Gradient Text */
+.calligraphic-gradient {
+  background: linear-gradient(135deg, #fef3c7 0%, #d97706 25%, #059669 50%, #1e40af 75%, #fef3c7 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 8s ease-in-out infinite;
 }
 
-/* Arabic-style featured card (skills section) */
-.arabic-card {
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%);
-  border: 1px solid rgba(251, 191, 36, 0.3);
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Ornate Button */
+.btn-andalusian {
+  background: linear-gradient(135deg, #d97706 0%, #059669 100%);
+  border: 2px solid rgba(254, 243, 199, 0.3);
+  box-shadow: 
+    0 4px 20px rgba(217, 119, 6, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
 }
 
-.arabic-card::after {
+.btn-andalusian::before {
   content: '';
   position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(251, 191, 36, 0.05) 2deg, transparent 4deg);
-  animation: rotate 40s linear infinite;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
 }
 
-@keyframes rotate {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.btn-andalusian:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
-/* Section chevron with gold */
-.section-title::before {
-  content: "❯";
-  background: linear-gradient(135deg, var(--primary), var(--gold));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-left: 0.5rem;
-  font-weight: bold;
-}
-
-[dir="rtl"] .section-title::before {
-  margin-left: 0;
-  margin-right: 0.5rem;
-}
-
-/* Gold accent button */
-.btn-gold {
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
-  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
-  transition: all 0.3s ease;
-}
-
-.btn-gold:hover {
-  box-shadow: 0 6px 30px rgba(251, 191, 36, 0.5);
+.btn-andalusian:hover {
+  box-shadow: 
+    0 6px 30px rgba(217, 119, 6, 0.6),
+    0 0 40px rgba(5, 150, 105, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
+  border-color: rgba(254, 243, 199, 0.5);
 }
 
-/* Arabic calligraphic logo effect */
-.logo-arabic {
-  font-weight: 700;
-  background: linear-gradient(135deg, #ffffff 0%, #fbbf24 50%, #10b981 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  letter-spacing: -0.02em;
+/* Arabesque Divider */
+.arabesque-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  position: relative;
+  margin: 3rem 0;
+}
+
+.arabesque-divider::before,
+.arabesque-divider::after {
+  content: '✦';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gold);
+  font-size: 1.5rem;
+}
+
+.arabesque-divider::before {
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Moorish Arch Shape */
+.moorish-arch {
+  clip-path: polygon(
+    0% 100%,
+    0% 20%,
+    10% 10%,
+    20% 5%,
+    30% 2%,
+    40% 0%,
+    50% 0%,
+    60% 0%,
+    70% 2%,
+    80% 5%,
+    90% 10%,
+    100% 20%,
+    100% 100%
+  );
+}
+
+/* Feature Icon Glow */
+.icon-glow {
+  filter: drop-shadow(0 0 10px currentColor);
+  transition: filter 0.3s ease;
+}
+
+.icon-glow:hover {
+  filter: drop-shadow(0 0 20px currentColor);
+}
+
+/* Scroll Reveal Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
 }
