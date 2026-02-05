@@ -1,21 +1,36 @@
 export default function Home() {
   return (
-    <main className="min-h-screen gradient-bg">
+    <main className="min-h-screen gradient-bg arabic-pattern">
       {/* Hero Section */}
       <section className="relative px-6 py-32 text-center">
-        {/* Logo Icon */}
+        {/* Logo Icon with Arabic star pattern */}
         <div className="mb-6 flex justify-center">
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="32" cy="32" r="30" fill="#EF4444"/>
-            <path d="M32 16L42 26L32 36L22 26L32 16Z" fill="white"/>
-            <path d="M32 28L42 38L32 48L22 38L32 28Z" fill="white" opacity="0.7"/>
+          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            {/* Outer gold ring */}
+            <circle cx="40" cy="40" r="38" stroke="url(#goldGradient)" strokeWidth="2" opacity="0.3"/>
+            {/* Main circle */}
+            <circle cx="40" cy="40" r="32" fill="url(#redGradient)"/>
+            {/* 8-pointed Arabic star */}
+            <path d="M40 12 L44 32 L52 24 L48 40 L64 36 L48 44 L64 48 L48 52 L40 68 L36 48 L28 56 L32 40 L16 44 L32 36 L16 32 L32 28 L40 12Z" 
+                  fill="white" opacity="0.9"/>
+            {/* Inner geometric pattern */}
+            <circle cx="40" cy="40" r="12" fill="white" opacity="0.3"/>
+            <defs>
+              <linearGradient id="goldGradient" x1="0" y1="0" x2="80" y2="80">
+                <stop offset="0%" stopColor="#fbbf24"/>
+                <stop offset="100%" stopColor="#10b981"/>
+              </linearGradient>
+              <linearGradient id="redGradient" x1="0" y1="0" x2="80" y2="80">
+                <stop offset="0%" stopColor="#ef4444"/>
+                <stop offset="100%" stopColor="#dc2626"/>
+              </linearGradient>
+            </defs>
           </svg>
         </div>
 
-        {/* Title */}
-        <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight">
-          <span className="text-white">عرب</span>
-          <span className="text-cyan-400">كلاو</span>
+        {/* Title with Arabic calligraphic gradient */}
+        <h1 className="text-6xl md:text-8xl font-bold mb-6 tracking-tight logo-arabic">
+          عربكلاو
         </h1>
         
         <p className="text-xl md:text-3xl text-red-500 font-bold mb-8 tracking-wide">
@@ -29,11 +44,11 @@ export default function Home() {
           كل ذلك من WhatsApp أو Telegram أو أي تطبيق محادثة تستخدمه بالفعل.
         </p>
 
-        {/* Video Badge */}
-        <div className="inline-flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-12">
+        {/* Video Badge with gold accent */}
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-red-500 to-amber-500 text-white px-5 py-2.5 rounded-full text-sm font-semibold mb-12 shadow-lg shadow-amber-500/30">
           <span className="bg-white text-red-500 px-2 py-0.5 rounded text-xs font-bold">جديد</span>
           <span>تقديم عربكلاو</span>
-          <span>→</span>
+          <span>✨</span>
         </div>
       </section>
 
@@ -193,26 +208,39 @@ export default function Home() {
           Skills عربية
         </h2>
         <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-gradient-to-br from-red-500/20 to-transparent feature-card rounded-xl p-8">
-            <div className="text-4xl mb-4">🗣️</div>
-            <h3 className="text-xl font-bold mb-3 text-white">دعم اللهجات</h3>
-            <p className="text-gray-400">
+          <div className="arabic-card rounded-xl p-8 relative z-10">
+            <div className="text-5xl mb-4 relative z-20">
+              <svg className="w-14 h-14 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold mb-3 text-white relative z-20">دعم اللهجات</h3>
+            <p className="text-gray-300 relative z-20">
               مصري، مغربي، خليجي - يفهم ويتحدث بلهجتك المحلية.
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-cyan-500/20 to-transparent feature-card rounded-xl p-8">
-            <div className="text-4xl mb-4">🛍️</div>
-            <h3 className="text-xl font-bold mb-3 text-white">تكاملات محلية</h3>
-            <p className="text-gray-400">
+          <div className="arabic-card rounded-xl p-8 relative z-10">
+            <div className="text-5xl mb-4 relative z-20">
+              <svg className="w-14 h-14 text-emerald-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold mb-3 text-white relative z-20">تكاملات محلية</h3>
+            <p className="text-gray-300 relative z-20">
               Noon، Talabat، Careem والمزيد من الخدمات الإقليمية.
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-purple-500/20 to-transparent feature-card rounded-xl p-8">
-            <div className="text-4xl mb-4">📊</div>
-            <h3 className="text-xl font-bold mb-3 text-white">أدوات عمل</h3>
-            <p className="text-gray-400">
+          <div className="arabic-card rounded-xl p-8 relative z-10">
+            <div className="text-5xl mb-4 relative z-20">
+              <svg className="w-14 h-14 text-amber-400" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+              </svg>
+            </div>
+            <h3 className="text-xl font-bold mb-3 text-white relative z-20">أدوات عمل</h3>
+            <p className="text-gray-300 relative z-20">
               محاسبة GCC، موارد بشرية، إدارة مشاريع بالعربية.
             </p>
           </div>
@@ -233,8 +261,8 @@ export default function Home() {
             placeholder="your@email.com" 
             className="flex-1 bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-red-500 focus:outline-none"
           />
-          <button className="bg-red-500 hover:bg-red-600 text-white px-8 py-3 rounded-lg font-semibold transition-all">
-            اشترك →
+          <button className="btn-gold text-white px-8 py-3 rounded-lg font-semibold">
+            اشترك ✨
           </button>
         </div>
 

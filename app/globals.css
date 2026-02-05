@@ -7,6 +7,8 @@
   --foreground: #ffffff;
   --primary: #ef4444;
   --secondary: #06b6d4;
+  --gold: #fbbf24;
+  --emerald: #10b981;
 }
 
 body {
@@ -27,28 +29,88 @@ body {
   font-family: 'Noto Sans Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-/* OpenClaw-inspired gradient background */
+/* OpenClaw gradient + Arabic gold touches */
 .gradient-bg {
-  background: radial-gradient(ellipse at top, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
+  background: radial-gradient(ellipse at top right, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
+              radial-gradient(ellipse at top left, rgba(239, 68, 68, 0.1) 0%, transparent 50%),
               radial-gradient(ellipse at bottom, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
 }
 
-/* Feature card hover effect */
+/* Arabic geometric pattern overlay */
+.arabic-pattern {
+  background-image: 
+    repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(251, 191, 36, 0.03) 35px, rgba(251, 191, 36, 0.03) 70px),
+    repeating-linear-gradient(-45deg, transparent, transparent 35px, rgba(16, 185, 129, 0.03) 35px, rgba(16, 185, 129, 0.03) 70px);
+}
+
+/* Feature card with Arabic border accent */
 .feature-card {
   background: rgba(17, 24, 39, 0.5);
   border: 1px solid rgba(75, 85, 99, 0.3);
+  position: relative;
   transition: all 0.3s ease;
 }
 
-.feature-card:hover {
-  border-color: rgba(239, 68, 68, 0.5);
-  background: rgba(17, 24, 39, 0.8);
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(251, 191, 36, 0.5), rgba(16, 185, 129, 0.5));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 0 8px 8px 0;
 }
 
-/* Section chevron */
+[dir="rtl"] .feature-card::before {
+  right: auto;
+  left: 0;
+  border-radius: 8px 0 0 8px;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
+}
+
+.feature-card:hover {
+  border-color: rgba(251, 191, 36, 0.4);
+  background: rgba(17, 24, 39, 0.8);
+  box-shadow: 0 0 30px rgba(251, 191, 36, 0.1);
+}
+
+/* Arabic-style featured card (skills section) */
+.arabic-card {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%);
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.arabic-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: repeating-conic-gradient(from 0deg at 50% 50%, transparent 0deg, rgba(251, 191, 36, 0.05) 2deg, transparent 4deg);
+  animation: rotate 40s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Section chevron with gold */
 .section-title::before {
   content: "❯";
-  color: var(--primary);
+  background: linear-gradient(135deg, var(--primary), var(--gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-left: 0.5rem;
   font-weight: bold;
 }
@@ -56,4 +118,26 @@ body {
 [dir="rtl"] .section-title::before {
   margin-left: 0;
   margin-right: 0.5rem;
+}
+
+/* Gold accent button */
+.btn-gold {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+  box-shadow: 0 6px 30px rgba(251, 191, 36, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Arabic calligraphic logo effect */
+.logo-arabic {
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 0%, #fbbf24 50%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
 }
