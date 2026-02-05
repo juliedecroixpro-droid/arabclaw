@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "عربكلاو | ArabClaw - مساعدك الذكي بلغتك",
-  description: "أول مساعد ذكاء اصطناعي مفتوح المصدر بالعربية. دعم كامل للهجات، خصوصية مطلقة، Skills عربية.",
-  keywords: "openclaw, arabclaw, عربكلاو, ذكاء اصطناعي عربي, AI assistant, مساعد ذكي, مفتوح المصدر",
+  title: "عربكلاو | ArabClaw - الذكاء الاصطناعي الذي يعمل فعلاً",
+  description: "أول مساعد ذكاء اصطناعي مفتوح المصدر بالعربية. يعمل محلياً على جهازك مع دعم كامل للهجات العربية.",
+  keywords: "openclaw, arabclaw, عربكلاو, ذكاء اصطناعي, AI assistant, مساعد ذكي, مفتوح المصدر",
 };
 
 export default function RootLayout({
@@ -16,60 +16,58 @@ export default function RootLayout({
     <html lang="ar" dir="rtl">
       <head>
         <link 
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&family=Amiri:wght@400;700&display=swap" 
+          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&display=swap" 
           rel="stylesheet" 
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
       </head>
       <body className="font-arabic antialiased">
-        {/* Elegant Navigation */}
-        <nav className="fixed top-0 w-full bg-gradient-to-b from-black/90 via-black/70 to-transparent backdrop-blur-md border-b border-amber-600/20 z-50">
-          <div className="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+        {/* Navigation */}
+        <nav className="fixed top-0 w-full bg-black/80 backdrop-blur-md border-b border-gray-800 z-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
             {/* Logo */}
-            <div className="flex items-center gap-3">
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="20" cy="20" r="18" stroke="url(#navGradient)" strokeWidth="2"/>
-                <path d="M20 8 L24 16 L28 12 L24 20 L32 18 L24 22 L20 32 L16 22 L8 18 L16 20 L12 12 L16 16 Z" fill="url(#navGradient2)"/>
-                <defs>
-                  <linearGradient id="navGradient" x1="0" y1="0" x2="40" y2="40">
-                    <stop offset="0%" stopColor="#d97706"/>
-                    <stop offset="100%" stopColor="#059669"/>
-                  </linearGradient>
-                  <linearGradient id="navGradient2" x1="8" y1="8" x2="32" y2="32">
-                    <stop offset="0%" stopColor="#fef3c7"/>
-                    <stop offset="50%" stopColor="#d97706"/>
-                    <stop offset="100%" stopColor="#059669"/>
-                  </linearGradient>
-                </defs>
+            <div className="flex items-center gap-2 sm:gap-3">
+              <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="w-8 h-8 sm:w-10 sm:h-10">
+                <circle cx="16" cy="16" r="14" fill="#EF4444"/>
+                <path d="M16 8 L20 12 L16 16 L12 12 Z" fill="white" opacity="0.9"/>
+                <path d="M16 13 L20 17 L16 21 L12 17 Z" fill="white" opacity="0.6"/>
               </svg>
-              <span className="text-2xl font-bold">
-                <span className="text-amber-100">عرب</span>
-                <span className="text-emerald-400">كلاو</span>
+              <span className="text-lg sm:text-xl md:text-2xl font-bold">
+                <span className="text-white">عرب</span>
+                <span className="text-cyan-400">كلاو</span>
               </span>
             </div>
 
-            {/* Nav Links */}
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#features" className="text-gray-300 hover:text-amber-400 transition-colors font-semibold">
+            {/* Nav Links - Desktop */}
+            <div className="hidden md:flex items-center gap-6 lg:gap-8">
+              <a href="#features" className="text-gray-300 hover:text-white transition-colors text-sm lg:text-base font-medium">
                 المزايا
               </a>
-              <a href="#community" className="text-gray-300 hover:text-amber-400 transition-colors font-semibold">
+              <a href="#community" className="text-gray-300 hover:text-white transition-colors text-sm lg:text-base font-medium">
                 المجتمع
               </a>
-              <a href="/blog" className="text-gray-300 hover:text-amber-400 transition-colors font-semibold">
+              <a href="/blog" className="text-gray-300 hover:text-white transition-colors text-sm lg:text-base font-medium">
                 المدونة
               </a>
-              <a href="#docs" className="text-gray-300 hover:text-amber-400 transition-colors font-semibold">
+              <a href="#docs" className="text-gray-300 hover:text-white transition-colors text-sm lg:text-base font-medium">
                 الوثائق
               </a>
-              <button className="text-sm bg-gradient-to-r from-amber-600 to-emerald-600 text-white px-6 py-2 rounded-lg font-bold hover:shadow-lg hover:shadow-amber-600/30 transition-all">
+              <button className="text-xs lg:text-sm bg-gray-800 hover:bg-gray-700 text-white px-3 lg:px-4 py-1.5 lg:py-2 rounded-lg font-semibold transition-colors">
                 EN
               </button>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button className="md:hidden text-gray-300 hover:text-white p-2">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
           </div>
         </nav>
 
         {/* Main Content */}
-        <div className="pt-20">
+        <div className="pt-14 sm:pt-16">
           {children}
         </div>
       </body>
