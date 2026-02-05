@@ -1,259 +1,154 @@
+import Image from 'next/image';
+
 export default function Home() {
   return (
     <main className="min-h-screen premium-bg">
-      {/* Hero Section */}
-      <section className="relative px-4 sm:px-6 lg:px-8 pt-20 sm:pt-24 lg:pt-32 pb-16 sm:pb-20 lg:pb-24">
-        <div className="max-w-6xl mx-auto text-center">
-          {/* Logo with Float Animation */}
-          <div className="mb-8 sm:mb-10 lg:mb-12 flex justify-center animate-scaleIn">
-            <div className="logo-float">
-              <svg 
-                width="96" 
-                height="96" 
-                viewBox="0 0 96 96" 
-                fill="none"
-                className="w-20 h-20 sm:w-24 sm:h-24 filter drop-shadow-2xl"
-              >
-                {/* Outer glow */}
-                <circle cx="48" cy="48" r="46" fill="url(#glow)" opacity="0.2"/>
-                
-                {/* Main circle with gradient */}
-                <circle cx="48" cy="48" r="38" fill="url(#gradient1)"/>
-                
-                {/* Inner pattern */}
-                <path 
-                  d="M48 24 L58 34 L48 44 L38 34 Z" 
-                  fill="white" 
-                  opacity="0.95"
-                />
-                <path 
-                  d="M48 38 L58 48 L48 58 L38 48 Z" 
-                  fill="white" 
-                  opacity="0.7"
-                />
-                <circle cx="48" cy="48" r="10" fill="white" opacity="0.4"/>
-                <circle cx="48" cy="48" r="4" fill="white"/>
-                
-                <defs>
-                  <radialGradient id="glow">
-                    <stop offset="0%" stopColor="#ff4444"/>
-                    <stop offset="100%" stopColor="transparent"/>
-                  </radialGradient>
-                  <linearGradient id="gradient1" x1="10" y1="10" x2="86" y2="86">
-                    <stop offset="0%" stopColor="#ff4444"/>
-                    <stop offset="50%" stopColor="#ff5555"/>
-                    <stop offset="100%" stopColor="#ff6666"/>
-                  </linearGradient>
-                </defs>
-              </svg>
-            </div>
-          </div>
+      {/* Hero Section with Mascot */}
+      <section className="relative px-4 sm:px-6 lg:px-8 pt-24 sm:pt-32 lg:pt-40 pb-20 sm:pb-28 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            {/* Right Side - Text Content */}
+            <div className="text-center lg:text-right order-2 lg:order-1">
+              {/* Main Title */}
+              <h1 className="font-arabic-display text-6xl sm:text-7xl lg:text-8xl xl:text-9xl mb-6 lg:mb-8 leading-tight">
+                <span className="block gradient-text">عربكلاو</span>
+              </h1>
 
-          {/* Main Title */}
-          <h1 className="font-arabic-display text-5xl sm:text-7xl lg:text-8xl xl:text-9xl mb-6 sm:mb-8 animate-fadeInUp" style={{animationDelay: '100ms'}}>
-            <span className="inline-block">
-              <span className="text-white">عرب</span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">كلاو</span>
-            </span>
-          </h1>
-
-          {/* Tagline */}
-          <div className="mb-6 sm:mb-8 lg:mb-10 animate-fadeInUp" style={{animationDelay: '200ms'}}>
-            <p className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-bold tracking-wide mb-2" style={{
-              background: 'linear-gradient(135deg, #ff4444 0%, #ff6666 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text'
-            }}>
-              الذكاء الاصطناعي الذي يعمل فعلاً.
-            </p>
-          </div>
-
-          {/* Description */}
-          <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto mb-10 sm:mb-12 lg:mb-16 leading-relaxed px-4 animate-fadeInUp" style={{animationDelay: '300ms'}}>
-            ينظف بريدك الإلكتروني، يرسل الرسائل، يدير تقويمك، يتحقق من رحلاتك.
-            <br className="hidden sm:block" />
-            <span className="text-gray-500">كل ذلك من WhatsApp أو Telegram أو أي تطبيق محادثة تستخدمه.</span>
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 sm:mb-20 px-4 animate-fadeInUp" style={{animationDelay: '400ms'}}>
-            <button className="btn-premium w-full sm:w-auto">
-              ابدأ الآن - مجاناً
-            </button>
-            <button className="btn-secondary-premium w-full sm:w-auto flex items-center justify-center gap-2">
-              <span>شاهد العرض التوضيحي</span>
-              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"/>
-              </svg>
-            </button>
-          </div>
-
-          {/* New Badge */}
-          <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full animate-fadeIn" 
-               style={{
-                 animationDelay: '500ms',
-                 background: 'linear-gradient(135deg, rgba(255,68,68,0.15) 0%, rgba(0,212,255,0.15) 100%)',
-                 border: '1px solid rgba(255,68,68,0.2)'
-               }}>
-            <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
-            </span>
-            <span className="text-sm sm:text-base font-semibold text-white">تقديم عربكلاو للعالم العربي</span>
-            <span className="text-red-400">→</span>
-          </div>
-        </div>
-      </section>
-
-      {/* What People Say */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-10 sm:mb-14 section-title">
-          ماذا يقول المستخدمون
-        </h2>
-        
-        <div className="grid sm:grid-cols-2 gap-5 sm:gap-6 lg:gap-8 mb-10">
-          {[
-            { text: "بالأمس، كنت أستخدم Claude بسرعة. أنا معجب جداً بمدى سهولة إنجاز الأمور. Claw يفعلها بشكل صحيح. دائم.", author: "@AyeshDubois" },
-            { text: "حاولت بناء مساعد AI من قبل، وأنا معجب جداً بمدى سهولة Claw. يقوم بالعمل الشاق.", author: "@MarkAppenth" },
-            { text: "OpenClaw يغير قواعد اللعبة. الإمكانيات للامتدادات المخصصة ضخمة، وهو يسرع العملية حقاً.", author: "@Senator_NFTs" },
-            { text: "جربت @openclaw. أعتقد أنك ستحبه. يمكنك استخدام iMessage للتحدث معه.", author: "@trevorjfr" }
-          ].map((testimonial, i) => (
-            <div 
-              key={i} 
-              className="testimonial-premium group"
-              style={{animationDelay: `${i * 100}ms`}}
-            >
-              <p className="text-sm sm:text-base lg:text-lg text-gray-300 mb-5 leading-relaxed relative z-10">
-                {testimonial.text}
+              {/* Tagline */}
+              <p className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 lg:mb-8" style={{
+                background: 'linear-gradient(135deg, #ff4444 0%, #ff6666 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text'
+              }}>
+                الذكاء الاصطناعي<br/>الذي يعمل فعلاً
               </p>
-              <p className="text-red-500 font-semibold text-sm sm:text-base relative z-10 group-hover:text-red-400 transition-colors">
-                {testimonial.author}
+
+              {/* Description */}
+              <p className="text-lg sm:text-xl lg:text-2xl text-gray-400 mb-10 lg:mb-12 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                مساعدك الشخصي الذكي الذي يفهم لهجتك،<br className="hidden sm:block"/>
+                يحترم خصوصيتك، ويعمل من أي تطبيق تستخدمه
               </p>
-            </div>
-          ))}
-        </div>
 
-        <div className="text-center">
-          <a 
-            href="#" 
-            className="inline-flex items-center gap-2 text-red-500 hover:text-red-400 font-semibold text-base sm:text-lg group transition-colors"
-          >
-            <span>عرض الكل</span>
-            <span className="group-hover:translate-x-1 transition-transform">→</span>
-          </a>
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-end">
+                <button className="btn-premium text-lg sm:text-xl px-8 py-4">
+                  ابدأ الآن مجاناً →
+                </button>
+                <button className="btn-secondary-premium text-lg sm:text-xl px-8 py-4">
+                  شاهد كيف يعمل
+                </button>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-end gap-6 mt-12 lg:mt-16 text-sm text-gray-500">
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-emerald-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                  </svg>
+                  <span>مفتوح المصدر</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"/>
+                  </svg>
+                  <span>خصوصية تامة</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-amber-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                  </svg>
+                  <span>مجاني للأبد</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Left Side - Mascot */}
+            <div className="relative order-1 lg:order-2">
+              <div className="relative max-w-md mx-auto lg:max-w-none">
+                {/* Glow Effect Behind Mascot */}
+                <div className="absolute inset-0 bg-gradient-to-r from-red-500/20 to-pink-500/20 blur-3xl rounded-full scale-110"></div>
+                
+                {/* Mascot Image */}
+                <div className="relative animate-fadeIn">
+                  <Image
+                    src="/mascot.jpg"
+                    alt="عربكلاو - المساعد الذكي"
+                    width={600}
+                    height={600}
+                    priority
+                    className="w-full h-auto logo-float drop-shadow-2xl"
+                  />
+                </div>
+
+                {/* Floating Bubbles Around Mascot */}
+                <div className="absolute -top-4 -right-4 glass-card p-4 animate-fadeIn" style={{animationDelay: '300ms'}}>
+                  <p className="text-sm font-semibold whitespace-nowrap">👋 أهلاً!</p>
+                </div>
+                
+                <div className="absolute top-1/3 -left-8 glass-card p-4 animate-fadeIn" style={{animationDelay: '500ms'}}>
+                  <p className="text-sm font-semibold whitespace-nowrap">🗣️ بلهجتك</p>
+                </div>
+
+                <div className="absolute bottom-1/4 -right-8 glass-card p-4 animate-fadeIn" style={{animationDelay: '700ms'}}>
+                  <p className="text-sm font-semibold whitespace-nowrap">🔒 آمن 100%</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Quick Start */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 max-w-5xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 sm:mb-10 section-title">
-          البداية السريعة
-        </h2>
-        
-        <div className="terminal-premium">
-          <div className="flex items-center justify-between mb-5">
-            <div className="flex gap-2">
-              <div className="w-3 h-3 rounded-full bg-red-500 hover:bg-red-400 transition-colors cursor-pointer"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-500 hover:bg-yellow-400 transition-colors cursor-pointer"></div>
-              <div className="w-3 h-3 rounded-full bg-green-500 hover:bg-green-400 transition-colors cursor-pointer"></div>
-            </div>
-            <span className="text-gray-500 text-xs sm:text-sm font-medium">bash</span>
-          </div>
-          
-          <div className="space-y-3 text-xs sm:text-sm lg:text-base">
-            <div className="text-gray-500 leading-relaxed">
-              # macOS, Windows & Linux. التثبيت بأمر واحد.
-            </div>
-            <div className="flex items-start gap-3">
-              <span className="text-emerald-400 shrink-0">$</span>
-              <code className="text-gray-100 break-all font-mono" dir="ltr">
-                curl -fsSL https://openclaw.ai/install.sh | bash
-              </code>
-            </div>
-          </div>
-        </div>
-
-        <p className="text-center text-gray-500 mt-6 sm:mt-8 text-sm sm:text-base leading-relaxed">
-          يعمل على macOS و Windows و Linux. التثبيت بأمر واحد يضبط كل شيء لك.
-        </p>
-      </section>
-
-      {/* What it Does */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-10 sm:mb-14 section-title">
-          ماذا يفعل
+      {/* Features Section */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-20 sm:py-28 max-w-7xl mx-auto">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-16 sm:mb-20 section-title">
+          لماذا عربكلاو؟
         </h2>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
           {[
             {
-              icon: (
-                <svg className="w-10 h-10 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
-                </svg>
-              ),
-              title: "يعمل على جهازك",
-              description: "Mac، Windows، أو Linux. Anthropic، OpenAI، Google، Ollama - افتراضي أو محلي تماماً."
+              emoji: "🗣️",
+              title: "يفهم كل اللهجات",
+              description: "مصري، خليجي، مغربي، شامي - يتحدث معك بلهجتك الأم بكل طبيعية"
             },
             {
-              icon: (
-                <svg className="w-10 h-10 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
-                </svg>
-              ),
-              title: "أي تطبيق محادثة",
-              description: "تحدث معه على WhatsApp، Telegram، Discord، Slack، Signal، أو iMessage. يعمل في DMs ومحادثات المجموعات."
+              emoji: "🔒",
+              title: "خصوصيتك أولاً",
+              description: "كل شيء يعمل محلياً على جهازك. بياناتك لا تغادر جهازك أبداً"
             },
             {
-              icon: (
-                <svg className="w-10 h-10 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9z"/>
-                </svg>
-              ),
-              title: "ذاكرة دائمة",
-              description: "يتذكرك ويتذكر تفضيلاتك. سياقك. ذاكرتك AI الخاصة التي تتعلم وتنمو معك."
+              emoji: "💬",
+              title: "من أي تطبيق",
+              description: "واتساب، تيليجرام، ديسكورد - استخدمه من التطبيق المفضل لديك"
             },
             {
-              icon: (
-                <svg className="w-10 h-10 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-              ),
-              title: "التحكم في المتصفح",
-              description: "يقرأ صفحات الويب، يملأ النماذج، يستخرج البيانات من أي موقع. أتمتة كاملة للويب."
+              emoji: "🧠",
+              title: "ذاكرة ذكية",
+              description: "يتذكر محادثاتك وتفضيلاتك ويتعلم منك مع الوقت"
             },
             {
-              icon: (
-                <svg className="w-10 h-10 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
-                </svg>
-              ),
-              title: "وصول كامل للنظام",
-              description: "يشغل أوامر shell، ينفذ الأوامر، يكتب الكود. جهازك بالكامل تحت تصرفك."
+              emoji: "🌐",
+              title: "يتصفح الإنترنت",
+              description: "يقرأ المواقع، يملأ النماذج، يجمع المعلومات تلقائياً"
             },
             {
-              icon: (
-                <svg className="w-10 h-10 text-red-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
-                </svg>
-              ),
-              title: "Skills ومكونات إضافية",
-              description: "مجتمع نشط يبني skills مذهلة. أو اكتب المكونات الإضافية الخاصة بك بسهولة."
+              emoji: "⚡",
+              title: "Skills عربية",
+              description: "مكتبة ضخمة من المهارات المصممة للمستخدم العربي"
             }
           ].map((feature, i) => (
             <div 
               key={i}
-              className="glass-card p-8 lg:p-10 text-center arab-accent group"
-              style={{animationDelay: `${i * 50}ms`}}
+              className="glass-card p-8 lg:p-10 group text-center hover:scale-105 transition-all duration-300"
             >
-              <div className="icon-container mx-auto mb-6">
-                {feature.icon}
+              <div className="text-6xl mb-6 group-hover:scale-110 transition-transform">
+                {feature.emoji}
               </div>
-              <h3 className="text-xl lg:text-2xl font-bold mb-4 text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-red-500 group-hover:to-pink-500 transition-all">
+              <h3 className="text-2xl font-bold mb-4 text-white">
                 {feature.title}
               </h3>
-              <p className="text-sm sm:text-base text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
+              <p className="text-gray-400 text-lg leading-relaxed">
                 {feature.description}
               </p>
             </div>
@@ -261,136 +156,210 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Works With Everything */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-10 sm:mb-14 section-title">
-          يعمل مع كل شيء
+      {/* How It Works Section */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-20 sm:py-28 max-w-6xl mx-auto">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-16 sm:mb-20 section-title">
+          كيف يعمل؟
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10">
-          {['WhatsApp', 'Telegram', 'Discord', 'Slack', 'Signal', 'iMessage', 'OpenAI', 'Spotify', 'Hue', 'Obsidian', 'X/Twitter', 'Browser', 'Gmail', 'GitHub'].map((app, i) => (
+        <div className="space-y-8 lg:space-y-12">
+          {[
+            {
+              number: "1",
+              title: "حمّل وثبّت",
+              description: "أمر واحد يضبط كل شيء على Mac أو Windows أو Linux"
+            },
+            {
+              number: "2",
+              title: "اختر تطبيقك المفضل",
+              description: "ربطه بواتساب، تيليجرام، أو أي تطبيق محادثة تستخدمه"
+            },
+            {
+              number: "3",
+              title: "ابدأ الحديث",
+              description: "تكلم معه بلهجتك العادية وهو يفهمك ويساعدك"
+            }
+          ].map((step, i) => (
             <div 
-              key={app} 
-              className="glass-card px-4 sm:px-5 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-gray-300 hover:text-white cursor-default"
-              style={{animationDelay: `${i * 30}ms`}}
+              key={i}
+              className="glass-card p-8 lg:p-10 flex flex-col sm:flex-row gap-6 items-start group hover:border-red-500/50 transition-all"
             >
-              {app}
+              <div className="shrink-0 w-16 h-16 rounded-full bg-gradient-to-br from-red-500 to-pink-500 flex items-center justify-center text-3xl font-bold text-white group-hover:scale-110 transition-transform">
+                {step.number}
+              </div>
+              <div className="flex-1 text-center sm:text-right">
+                <h3 className="text-2xl lg:text-3xl font-bold mb-3 text-white">
+                  {step.title}
+                </h3>
+                <p className="text-lg lg:text-xl text-gray-400 leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center flex flex-col sm:flex-row gap-4 sm:gap-8 justify-center items-center">
-          <a href="#" className="text-red-500 hover:text-red-400 font-semibold text-base sm:text-lg inline-flex items-center gap-2 group transition-colors">
-            <span>عرض جميع التكاملات +50</span>
-            <span className="group-hover:translate-x-1 transition-transform">→</span>
-          </a>
-          <a href="#" className="text-red-500 hover:text-red-400 font-semibold text-base sm:text-lg inline-flex items-center gap-2 group transition-colors">
-            <span>شاهد ما يبنيه الناس</span>
-            <span className="group-hover:translate-x-1 transition-transform">→</span>
-          </a>
-        </div>
-      </section>
-
-      {/* Featured In */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 max-w-6xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-10 sm:mb-14 section-title">
-          مميز في
-        </h2>
-
-        <div className="grid sm:grid-cols-2 gap-6 lg:gap-8">
-          <div className="glass-card p-8 lg:p-10 group">
-            <div className="text-5xl mb-5">🍎</div>
-            <h3 className="text-xl lg:text-2xl font-bold mb-4 text-white">MacStories</h3>
-            <p className="text-base lg:text-lg text-gray-400 italic mb-5 leading-relaxed">
-              "OpenClaw أظهر لي مستقبل المساعدين الشخصيين كما يبدو."
-            </p>
-            <p className="text-red-500 font-semibold text-base lg:text-lg group-hover:text-red-400 transition-colors">
-              Federico Viticci
-            </p>
-          </div>
-
-          <div className="glass-card p-8 lg:p-10 group">
-            <div className="text-5xl mb-5">⭐</div>
-            <h3 className="text-xl lg:text-2xl font-bold mb-4 text-white">StarryHope</h3>
-            <p className="text-base lg:text-lg text-gray-400 italic mb-5 leading-relaxed">
-              "The Lobster Takeover: لماذا يشتري المطورون Mac Minis ليديروا وكلاء AI الخاصين بهم"
-            </p>
-            <p className="text-red-500 font-semibold text-base lg:text-lg group-hover:text-red-400 transition-colors">
-              Jim Mendenhall
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Community */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 max-w-5xl mx-auto">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-          {[
-            { icon: '💬', title: 'Discord', color: 'from-indigo-500 to-purple-500' },
-            { icon: '📚', title: 'الوثائق', color: 'from-red-500 to-pink-500' },
-            { icon: '⚙️', title: 'GitHub', color: 'from-gray-500 to-gray-700' },
-            { icon: '✨', title: 'ClawHub', color: 'from-amber-500 to-yellow-500' }
-          ].map((item, i) => (
-            <a 
-              key={i}
-              href="#" 
-              className="glass-card p-6 lg:p-8 text-center group"
-              style={{animationDelay: `${i * 75}ms`}}
-            >
-              <div className="text-4xl lg:text-5xl mb-4 group-hover:scale-110 transition-transform">
-                {item.icon}
+        {/* Install Command */}
+        <div className="mt-16 lg:mt-20">
+          <div className="terminal-premium max-w-3xl mx-auto">
+            <div className="flex items-center justify-between mb-5">
+              <div className="flex gap-2">
+                <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                <div className="w-3 h-3 rounded-full bg-green-500"></div>
               </div>
-              <h3 className={`font-bold text-base sm:text-lg bg-gradient-to-r ${item.color} bg-clip-text text-transparent`}>
-                {item.title}
-              </h3>
-            </a>
+              <span className="text-gray-500 text-sm">bash</span>
+            </div>
+            
+            <div className="space-y-3">
+              <div className="text-gray-500 text-sm sm:text-base">
+                # ثبّت عربكلاو بأمر واحد
+              </div>
+              <div className="flex items-start gap-3">
+                <span className="text-emerald-400 shrink-0">$</span>
+                <code className="text-gray-100 break-all font-mono text-sm sm:text-base" dir="ltr">
+                  curl -fsSL https://openclaw.ai/install.sh | bash
+                </code>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-20 sm:py-28 max-w-7xl mx-auto">
+        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center mb-16 sm:mb-20 section-title">
+          ماذا يقول المستخدمون
+        </h2>
+        
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {[
+            { text: "كنت أستخدم Claude بسرعة. عربكلاو يفعلها بشكل صحيح ودائم.", author: "أحمد - مطور" },
+            { text: "أفضل مساعد AI جربته. يفهم اللهجة المصرية تماماً!", author: "سارة - مهندسة" },
+            { text: "الخصوصية والأمان مهمين لي. عربكلاو يعطيني كليهما.", author: "خالد - رائد أعمال" },
+            { text: "يوفر لي ساعات من العمل كل أسبوع.", author: "فاطمة - مديرة مشاريع" },
+            { text: "مفتوح المصدر ومجاني؟ لا يوجد أفضل من هذا!", author: "عمر - طالب" },
+            { text: "التكامل مع واتساب جعله سهل الاستخدام جداً.", author: "ليلى - معلمة" }
+          ].map((testimonial, i) => (
+            <div 
+              key={i}
+              className="testimonial-premium group"
+            >
+              <p className="text-base lg:text-lg text-gray-300 mb-5 leading-relaxed">
+                "{testimonial.text}"
+              </p>
+              <p className="text-red-500 font-semibold group-hover:text-red-400 transition-colors">
+                — {testimonial.author}
+              </p>
+            </div>
           ))}
         </div>
       </section>
 
-      {/* Newsletter */}
-      <section className="relative px-4 sm:px-6 lg:px-8 py-20 sm:py-24 lg:py-32 max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 section-title inline-block">
-          ابقَ على اطلاع
-        </h2>
-        <p className="text-base sm:text-lg text-gray-400 mb-10 sm:mb-12 max-w-2xl mx-auto leading-relaxed">
-          احصل على تحديثات حول الميزات الجديدة، التكاملات، والحكمة الذكية.
-          <br className="hidden sm:block" />
-          <span className="text-gray-500">لا بريد عشوائي، إلغاء الاشتراك في أي وقت.</span>
-        </p>
+      {/* CTA Section with Mascot */}
+      <section className="relative px-4 sm:px-6 lg:px-8 py-28 sm:py-36 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-red-500/5 to-transparent"></div>
+        
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <div className="mb-8 flex justify-center">
+            <div className="w-32 h-32 relative">
+              <Image
+                src="/mascot.jpg"
+                alt="عربكلاو"
+                width={128}
+                height={128}
+                className="w-full h-full object-contain logo-float"
+              />
+            </div>
+          </div>
 
-        <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
-          <input 
-            type="email" 
-            placeholder="your@email.com" 
-            className="flex-1 bg-black/40 border border-white/10 rounded-lg px-5 py-4 text-white text-base focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-500/20 transition-all placeholder:text-gray-500"
-          />
-          <button className="btn-premium whitespace-nowrap">
-            اشترك →
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8 leading-tight">
+            جاهز للبدء؟
+          </h2>
+          
+          <p className="text-xl sm:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+            انضم لآلاف المستخدمين العرب الذين يستخدمون عربكلاو يومياً
+          </p>
+
+          <button className="btn-premium text-xl px-12 py-5 mb-8">
+            ابدأ مجاناً الآن →
           </button>
+
+          <p className="text-gray-500">
+            مجاني تماماً • مفتوح المصدر • خصوصية كاملة
+          </p>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="relative border-t border-white/5 px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      <footer className="relative border-t border-white/5 px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm sm:text-base">
-            {['المدونة', 'عرض', 'Shoutout', 'التكاملات'].map((link, i) => (
-              <a 
-                key={i}
-                href="#" 
-                className="text-gray-400 hover:text-red-400 transition-colors font-medium"
-              >
-                {link}
-              </a>
-            ))}
+          {/* Footer Links */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+            <div>
+              <h3 className="font-bold text-lg mb-4 text-white">المنتج</h3>
+              <ul className="space-y-3 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">المزايا</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">كيف يعمل</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">الأسعار</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">التحديثات</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-lg mb-4 text-white">المطورون</h3>
+              <ul className="space-y-3 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">الوثائق</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Skills</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">GitHub</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">المساهمة</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-lg mb-4 text-white">المجتمع</h3>
+              <ul className="space-y-3 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">Discord</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Telegram</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">المدونة</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">المنتدى</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-lg mb-4 text-white">الشركة</h3>
+              <ul className="space-y-3 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">من نحن</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">تواصل معنا</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">الخصوصية</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">الشروط</a></li>
+              </ul>
+            </div>
           </div>
-          
-          <p className="text-center text-gray-500 text-xs sm:text-sm leading-relaxed">
-            بُني بواسطة <a href="#" className="text-red-500 hover:text-red-400 transition-colors">المجتمع العربي</a> بحب ❤️
-            <br />
-            <span className="text-gray-600">مفتوح المصدر • مجاني للأبد • جميع الحقوق محفوظة © 2026</span>
-          </p>
+
+          {/* Bottom Bar */}
+          <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-gray-500 text-sm text-center sm:text-right">
+              © 2026 عربكلاو • صُنع بحب للمستخدم العربي ❤️
+            </p>
+            <div className="flex items-center gap-6">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                </svg>
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </footer>
     </main>
