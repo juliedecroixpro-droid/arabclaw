@@ -2,15 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-black text-white font-sans antialiased;
-  }
-}
-
 /* Exact OpenClaw.ai styling */
 :root {
   --background: 0 0% 0%;
@@ -23,6 +14,14 @@
   --muted: 0 0% 20%;
   --accent: 0 84% 60%;
   --border: 0 0% 14%;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* OpenClaw exact animations */
@@ -141,4 +140,9 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Arabic font */
+.font-arabic {
+  font-family: 'Noto Sans Arabic', system-ui, sans-serif;
 }
