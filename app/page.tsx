@@ -3,11 +3,11 @@ import Image from 'next/image';
 export default function Home() {
   return (
     <main className="min-h-screen bg-black">
-      {/* Hero Section - Exact OpenClaw structure */}
-      <section className="px-4 py-20 sm:py-32 text-center">
+      {/* EXACT Hero from OpenClaw */}
+      <section className="px-6 py-20 sm:py-32 text-center">
         <div className="max-w-5xl mx-auto">
-          {/* Logo - Mascot replacing red blob */}
-          <div className="mb-8 flex justify-center animate-fadeIn">
+          {/* Mascot Logo - exact size/position as OpenClaw blob */}
+          <div className="mb-8 flex justify-center">
             <div className="w-20 h-20 sm:w-24 sm:h-24 logo-pulse">
               <Image
                 src="/mascot.jpg"
@@ -20,26 +20,26 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Title - Exact OpenClaw style */}
-          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6 animate-slideUp" style={{animationDelay: '0.1s'}}>
+          {/* Title - exact OpenClaw size/spacing */}
+          <h1 className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-4 sm:mb-6 leading-none">
             <span className="text-white">عرب</span>
             <span className="text-cyan-400">كلاو</span>
           </h1>
 
-          {/* Tagline - Exact style */}
-          <p className="text-xl sm:text-2xl lg:text-3xl text-red-500 font-bold mb-6 sm:mb-8 uppercase tracking-wide animate-slideUp" style={{animationDelay: '0.2s'}}>
+          {/* Tagline - exact style */}
+          <p className="text-xl sm:text-2xl lg:text-3xl text-red-500 font-bold mb-6 sm:mb-8 uppercase tracking-wider">
             الذكاء الاصطناعي الذي يعمل فعلاً.
           </p>
 
-          {/* Description - Exact style */}
-          <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed animate-slideUp" style={{animationDelay: '0.3s'}}>
+          {/* Description - exact spacing */}
+          <p className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-3xl mx-auto mb-12 leading-relaxed">
             ينظف بريدك الإلكتروني، يرسل الرسائل، يدير تقويمك، يتحقق من رحلاتك.
             <br className="hidden sm:block" />
             كل ذلك من WhatsApp أو Telegram أو أي تطبيق محادثة تستخدمه.
           </p>
 
-          {/* NEW Badge - Exact OpenClaw style */}
-          <div className="inline-flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-semibold mb-12 animate-fadeIn" style={{animationDelay: '0.4s'}}>
+          {/* NEW Badge - exact OpenClaw style */}
+          <div className="inline-flex items-center gap-2 bg-red-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
             <span className="bg-white text-red-500 px-2 py-0.5 rounded text-xs font-bold">جديد</span>
             <span>تقديم عربكلاو</span>
             <span>→</span>
@@ -47,8 +47,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* What People Say - Exact OpenClaw structure */}
-      <section className="px-4 py-16 max-w-7xl mx-auto">
+      {/* What People Say - EXACT OpenClaw layout */}
+      <section className="px-6 py-16 max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold section-chevron">
             ماذا يقول المستخدمون
@@ -59,39 +59,34 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Testimonials Grid - Exact OpenClaw style */}
         <div className="grid sm:grid-cols-2 gap-4">
-          {[
-            {
-              text: "بالأمس، كنت أستخدم Claude بسرعة. أنا معجب جداً بمدى سهولة إنجاز الأمور. Claw يفعلها بشكل صحيح. دائم.",
-              author: "@AyeshDubois"
-            },
-            {
-              text: "حاولت بناء مساعد AI من قبل، وأنا معجب جداً بمدى سهولة Claw. يقوم بالعمل الشاق.",
-              author: "@MarkAppenth"
-            },
-            {
-              text: "يعيش في المستقبل",
-              author: "@Senator_NFTs"
-            },
-            {
-              text: "جربت @openclaw. أعتقد أنك ستحبه. يمكنك استخدام iMessage للتحدث معه.",
-              author: "@trevorjfr"
-            }
-          ].map((item, i) => (
-            <div 
-              key={i}
-              className="card-hover rounded-xl p-6 animate-fadeIn"
-              style={{animationDelay: `${i * 0.1}s`}}
-            >
-              <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
-                {item.text}
-              </p>
-              <p className="text-red-500 font-semibold text-sm">
-                {item.author}
-              </p>
-            </div>
-          ))}
+          <div className="openclaw-card p-6">
+            <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
+              "بالأمس، كنت أستخدم Claude بسرعة. أنا معجب جداً بمدى سهولة إنجاز الأمور. Claw يفعلها بشكل صحيح. دائم."
+            </p>
+            <p className="text-red-500 font-semibold text-sm">@AyeshDubois</p>
+          </div>
+
+          <div className="openclaw-card p-6">
+            <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
+              "حاولت بناء مساعد AI من قبل، وأنا معجب جداً بمدى سهولة Claw. يقوم بالعمل الشاق."
+            </p>
+            <p className="text-red-500 font-semibold text-sm">@MarkAppenth</p>
+          </div>
+
+          <div className="openclaw-card p-6">
+            <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
+              "يعيش في المستقبل"
+            </p>
+            <p className="text-red-500 font-semibold text-sm">@Senator_NFTs</p>
+          </div>
+
+          <div className="openclaw-card p-6">
+            <p className="text-sm sm:text-base text-gray-300 mb-4 leading-relaxed">
+              "جربت @openclaw. أعتقد أنك ستحبه. يمكنك استخدام iMessage للتحدث معه."
+            </p>
+            <p className="text-red-500 font-semibold text-sm">@trevorjfr</p>
+          </div>
         </div>
 
         <div className="text-center mt-6 sm:hidden">
@@ -102,13 +97,13 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quick Start - Exact OpenClaw structure */}
-      <section className="px-4 py-16 max-w-5xl mx-auto">
+      {/* Quick Start - EXACT terminal style */}
+      <section className="px-6 py-16 max-w-5xl mx-auto">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-8 section-chevron">
           البداية السريعة
         </h2>
 
-        <div className="terminal">
+        <div className="terminal-openclaw">
           <div className="flex items-center gap-2 mb-4">
             <div className="flex gap-1.5">
               <div className="w-3 h-3 rounded-full bg-red-500"></div>
@@ -136,73 +131,72 @@ export default function Home() {
         </p>
       </section>
 
-      {/* What it Does - Exact OpenClaw 6-card grid */}
-      <section className="px-4 py-16 max-w-7xl mx-auto">
+      {/* What it Does - EXACT 6-card grid */}
+      <section className="px-6 py-16 max-w-7xl mx-auto">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-12 section-chevron">
           ماذا يفعل
         </h2>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {[
-            {
-              icon: "🏠",
-              title: "يعمل على جهازك",
-              desc: "Mac، Windows، أو Linux. Anthropic، OpenAI، Google، Ollama - افتراضي أو محلي تماماً."
-            },
-            {
-              icon: "💬",
-              title: "أي تطبيق محادثة",
-              desc: "تحدث معه على WhatsApp، Telegram، Discord، Slack، Signal، أو iMessage. يعمل في DMs ومحادثات المجموعات."
-            },
-            {
-              icon: "🧠",
-              title: "ذاكرة دائمة",
-              desc: "يتذكرك ويتذكر تفضيلاتك. سياقك. ذاكرتك AI الخاصة."
-            },
-            {
-              icon: "🌐",
-              title: "التحكم في المتصفح",
-              desc: "يقرأ صفحات الويب، يملأ النماذج، ويستخرج البيانات من أي موقع."
-            },
-            {
-              icon: "⚡",
-              title: "وصول كامل للنظام",
-              desc: "يشغل أوامر shell، ينفذ الأوامر، يكتب الكود - جهازك بالكامل."
-            },
-            {
-              icon: "🔧",
-              title: "Skills ومكونات إضافية",
-              desc: "مجتمع نشط يبني skills. يمكن كتابة المكونات الإضافية الخاصة بك."
-            }
-          ].map((feature, i) => (
-            <div 
-              key={i}
-              className="card-hover rounded-xl p-8 text-center animate-fadeIn"
-              style={{animationDelay: `${i * 0.05}s`}}
-            >
-              <div className="text-4xl mb-4">{feature.icon}</div>
-              <h3 className="text-lg font-bold mb-3">{feature.title}</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
-                {feature.desc}
-              </p>
-            </div>
-          ))}
+          <div className="openclaw-card p-8 text-center">
+            <div className="text-4xl mb-4">🏠</div>
+            <h3 className="text-lg font-bold mb-3">يعمل على جهازك</h3>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              Mac، Windows، أو Linux. Anthropic، OpenAI، Google، Ollama - افتراضي أو محلي تماماً.
+            </p>
+          </div>
+
+          <div className="openclaw-card p-8 text-center">
+            <div className="text-4xl mb-4">💬</div>
+            <h3 className="text-lg font-bold mb-3">أي تطبيق محادثة</h3>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              تحدث معه على WhatsApp، Telegram، Discord، Slack، Signal، أو iMessage. يعمل في DMs ومحادثات المجموعات.
+            </p>
+          </div>
+
+          <div className="openclaw-card p-8 text-center">
+            <div className="text-4xl mb-4">🧠</div>
+            <h3 className="text-lg font-bold mb-3">ذاكرة دائمة</h3>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              يتذكرك ويتذكر تفضيلاتك. سياقك. ذاكرتك AI الخاصة.
+            </p>
+          </div>
+
+          <div className="openclaw-card p-8 text-center">
+            <div className="text-4xl mb-4">🌐</div>
+            <h3 className="text-lg font-bold mb-3">التحكم في المتصفح</h3>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              يقرأ صفحات الويب، يملأ النماذج، ويستخرج البيانات من أي موقع.
+            </p>
+          </div>
+
+          <div className="openclaw-card p-8 text-center">
+            <div className="text-4xl mb-4">⚡</div>
+            <h3 className="text-lg font-bold mb-3">وصول كامل للنظام</h3>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              يشغل أوامر shell، ينفذ الأوامر، يكتب الكود - جهازك بالكامل.
+            </p>
+          </div>
+
+          <div className="openclaw-card p-8 text-center">
+            <div className="text-4xl mb-4">🔧</div>
+            <h3 className="text-lg font-bold mb-3">Skills ومكونات إضافية</h3>
+            <p className="text-sm text-gray-400 leading-relaxed">
+              مجتمع نشط يبني skills. يمكن كتابة المكونات الإضافية الخاصة بك.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* Works With Everything - Exact OpenClaw */}
-      <section className="px-4 py-16 max-w-7xl mx-auto">
+      {/* Works With Everything */}
+      <section className="px-6 py-16 max-w-7xl mx-auto">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-12 section-chevron">
           يعمل مع كل شيء
         </h2>
 
         <div className="flex flex-wrap justify-center gap-3 mb-8">
-          {['WhatsApp', 'Telegram', 'Discord', 'Slack', 'Signal', 'iMessage', 'GPT', 'Spotify', 'Hue', 'Obsidian', 'Twitter', 'Browser', 'Gmail', 'GitHub'].map((app, i) => (
-            <div 
-              key={app}
-              className="card-hover px-4 py-2 rounded-lg text-sm font-semibold text-gray-300 animate-fadeIn"
-              style={{animationDelay: `${i * 0.03}s`}}
-            >
+          {['WhatsApp', 'Telegram', 'Discord', 'Slack', 'Signal', 'iMessage', 'GPT', 'Spotify', 'Hue', 'Obsidian', 'Twitter', 'Browser', 'Gmail', 'GitHub'].map(app => (
+            <div key={app} className="openclaw-card px-4 py-2 text-sm font-semibold text-gray-300">
               {app}
             </div>
           ))}
@@ -220,14 +214,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured In - Exact OpenClaw */}
-      <section className="px-4 py-16 max-w-6xl mx-auto">
+      {/* Featured In */}
+      <section className="px-6 py-16 max-w-6xl mx-auto">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-12 section-chevron">
           مميز في
         </h2>
 
         <div className="grid sm:grid-cols-2 gap-6">
-          <div className="card-hover rounded-xl p-8">
+          <div className="openclaw-card p-8">
             <div className="text-4xl mb-4">🍎</div>
             <h3 className="text-xl font-bold mb-3">MacStories</h3>
             <p className="text-gray-400 italic mb-4 leading-relaxed">
@@ -236,7 +230,7 @@ export default function Home() {
             <p className="text-red-500 font-semibold">Federico Viticci</p>
           </div>
 
-          <div className="card-hover rounded-xl p-8">
+          <div className="openclaw-card p-8">
             <div className="text-4xl mb-4">⭐</div>
             <h3 className="text-xl font-bold mb-3">StarryHope</h3>
             <p className="text-gray-400 italic mb-4 leading-relaxed">
@@ -247,30 +241,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Community Links - Exact OpenClaw grid */}
-      <section className="px-4 py-16 max-w-5xl mx-auto">
+      {/* Community Links - 4-grid */}
+      <section className="px-6 py-16 max-w-5xl mx-auto">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {[
-            { icon: '💬', title: 'Discord' },
-            { icon: '📚', title: 'الوثائق' },
-            { icon: '⚙️', title: 'GitHub' },
-            { icon: '⭐', title: 'ClawHub' }
-          ].map((item, i) => (
-            <a 
-              key={i}
-              href="#"
-              className="card-hover rounded-xl p-6 text-center animate-fadeIn"
-              style={{animationDelay: `${i * 0.05}s`}}
-            >
-              <div className="text-4xl mb-3">{item.icon}</div>
-              <h3 className="font-bold">{item.title}</h3>
-            </a>
-          ))}
+          <a href="#" className="openclaw-card p-6 text-center">
+            <div className="text-4xl mb-3">💬</div>
+            <h3 className="font-bold">Discord</h3>
+          </a>
+
+          <a href="#" className="openclaw-card p-6 text-center">
+            <div className="text-4xl mb-3">📚</div>
+            <h3 className="font-bold">الوثائق</h3>
+          </a>
+
+          <a href="#" className="openclaw-card p-6 text-center">
+            <div className="text-4xl mb-3">⚙️</div>
+            <h3 className="font-bold">GitHub</h3>
+          </a>
+
+          <a href="#" className="openclaw-card p-6 text-center">
+            <div className="text-4xl mb-3">⭐</div>
+            <h3 className="font-bold">ClawHub</h3>
+          </a>
         </div>
       </section>
 
-      {/* Stay in the Loop - Exact OpenClaw */}
-      <section className="px-4 py-20 max-w-4xl mx-auto text-center">
+      {/* Newsletter */}
+      <section className="px-6 py-20 max-w-4xl mx-auto text-center">
         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 section-chevron inline-block">
           ابقَ على اطلاع
         </h2>
@@ -284,14 +281,14 @@ export default function Home() {
             placeholder="your@email.com" 
             className="flex-1 bg-zinc-900 border border-zinc-800 rounded-lg px-4 py-3 text-white focus:border-red-500 focus:outline-none"
           />
-          <button className="btn-primary whitespace-nowrap">
+          <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-semibold whitespace-nowrap transition-colors">
             اشترك →
           </button>
         </div>
       </section>
 
-      {/* Footer - Exact OpenClaw */}
-      <footer className="border-t border-zinc-800 px-4 py-12">
+      {/* Footer */}
+      <footer className="border-t border-zinc-800 px-6 py-12">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-wrap justify-center gap-6 mb-8 text-sm">
             <a href="#" className="text-red-500 hover:text-red-400">المدونة</a>

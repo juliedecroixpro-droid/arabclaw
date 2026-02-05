@@ -2,36 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Exact OpenClaw.ai styling */
-:root {
-  --background: 0 0% 0%;
-  --foreground: 0 0% 100%;
-  --card: 0 0% 6%;
-  --card-foreground: 0 0% 98%;
-  --primary: 0 84% 60%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: 187 100% 50%;
-  --muted: 0 0% 20%;
-  --accent: 0 84% 60%;
-  --border: 0 0% 14%;
-}
-
+/* Exact OpenClaw.ai base styles */
 body {
-  background-color: black;
-  color: white;
-  font-family: system-ui, -apple-system, sans-serif;
+  background: #000000;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* OpenClaw exact animations */
+/* Arabic font */
+.font-arabic {
+  font-family: 'Noto Sans Arabic', system-ui, sans-serif;
+}
+
+/* Exact OpenClaw animations */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes slideUp {
@@ -46,12 +33,8 @@ body {
 }
 
 @keyframes pulse {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
 }
 
 .animate-fadeIn {
@@ -63,86 +46,41 @@ body {
 }
 
 .logo-pulse {
-  animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse 3s ease-in-out infinite;
 }
 
-/* Card hover effect - exact OpenClaw style */
-.card-hover {
+/* Exact OpenClaw card style */
+.openclaw-card {
+  background: linear-gradient(135deg, rgba(24, 24, 27, 0.8) 0%, rgba(39, 39, 42, 0.4) 100%);
+  border: 1px solid rgba(63, 63, 70, 0.5);
+  border-radius: 12px;
   transition: all 0.2s ease;
-  border: 1px solid hsl(var(--border));
-  background: hsl(var(--card));
 }
 
-.card-hover:hover {
+.openclaw-card:hover {
   transform: translateY(-2px);
-  border-color: hsl(var(--primary) / 0.5);
-  box-shadow: 0 0 0 1px hsl(var(--primary) / 0.1);
+  border-color: rgba(239, 68, 68, 0.5);
+  box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.1);
 }
 
-/* Button styles - exact OpenClaw */
-.btn-primary {
-  background: hsl(var(--primary));
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  transition: all 0.2s;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-primary:hover {
-  background: hsl(var(--primary) / 0.9);
-  box-shadow: 0 4px 12px hsl(var(--primary) / 0.4);
-}
-
-.btn-secondary {
-  background: transparent;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  border: 1px solid hsl(var(--border));
-  transition: all 0.2s;
-  cursor: pointer;
-}
-
-.btn-secondary:hover {
-  background: hsl(var(--card));
-  border-color: hsl(var(--border) / 0.8);
-}
-
-/* Section chevron - exact OpenClaw */
+/* Section chevron */
 .section-chevron::before {
   content: "❯";
-  color: hsl(var(--primary));
-  margin-left: 0.5rem;
+  color: #ef4444;
+  margin-left: 8px;
   font-weight: 700;
 }
 
 [dir="rtl"] .section-chevron::before {
   margin-left: 0;
-  margin-right: 0.5rem;
+  margin-right: 8px;
 }
 
-/* Terminal styling - exact OpenClaw */
-.terminal {
+/* Terminal exact style */
+.terminal-openclaw {
   background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-  border: 1px solid hsl(var(--border));
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  font-family: 'SF Mono', 'Monaco', 'Courier New', monospace;
-}
-
-/* Exact OpenClaw gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, hsl(var(--primary)) 50%, hsl(var(--secondary)) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-/* Arabic font */
-.font-arabic {
-  font-family: 'Noto Sans Arabic', system-ui, sans-serif;
+  border: 1px solid #27272a;
+  border-radius: 12px;
+  padding: 24px;
+  font-family: 'SF Mono', Monaco, 'Courier New', monospace;
 }
