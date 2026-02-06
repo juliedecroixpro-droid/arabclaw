@@ -1,12 +1,45 @@
 import type { Metadata } from "next";
+import { Cairo } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+const cairo = Cairo({ 
+  subsets: ["arabic", "latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  title: "عربكلاو — مساعد AI شخصي",
-  description: "الذكاء الاصطناعي الذي يعمل فعلاً. ينظف بريدك، يرسل الرسائل، يدير تقويمك من أي تطبيق محادثة.",
+  title: {
+    default: "ArabClaw - OpenClaw بالعربية",
+    template: "%s | ArabClaw"
+  },
+  description: "أسهل طريقة لاستخدام الذكاء الاصطناعي بالعربية - OpenClaw باللغة العربية",
+  keywords: ["OpenClaw", "Arabic", "AI", "عربي", "ذكاء اصطناعي", "Claude", "ChatGPT"],
+  authors: [{ name: "ArabClaw Team" }],
   openGraph: {
-    images: ['/mascot.jpg'],
-  }
+    type: "website",
+    locale: "ar_SA",
+    url: "https://arabclaw.com",
+    siteName: "ArabClaw",
+    title: "ArabClaw - OpenClaw بالعربية",
+    description: "أسهل طريقة لاستخدام الذكاء الاصطناعي بالعربية",
+    images: [
+      {
+        url: "/mascot.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ArabClaw",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "ArabClaw - OpenClaw بالعربية",
+    description: "أسهل طريقة لاستخدام الذكاء الاصطناعي بالعربية",
+    images: ["/mascot.jpg"],
+  },
+  metadataBase: new URL("https://arabclaw.com"),
 };
 
 export default function RootLayout({
@@ -15,51 +48,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ar" dir="rtl">
-      <head>
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@400;600;700&display=swap" 
-          rel="stylesheet" 
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className="font-arabic">
-        {/* Exact OpenClaw Navigation */}
-        <nav className="fixed top-0 w-full bg-black/80 backdrop-blur-md border-b border-zinc-800 z-50">
-          <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            {/* Logo */}
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8">
-                <img src="/mascot.jpg" alt="عربكلاو" className="w-full h-full object-contain" />
-              </div>
-              <span className="text-xl font-bold">
-                <span className="text-white">عرب</span>
-                <span className="text-cyan-400">كلاو</span>
-              </span>
-            </div>
-
-            {/* Nav Links - Desktop */}
-            <div className="hidden md:flex items-center gap-8">
-              <a href="#features" className="text-gray-300 hover:text-white transition-colors">
-                المزايا
-              </a>
-              <a href="#community" className="text-gray-300 hover:text-white transition-colors">
-                المجتمع
-              </a>
-              <a href="/blog" className="text-gray-300 hover:text-white transition-colors">
-                المدونة
-              </a>
-              <a href="#docs" className="text-gray-300 hover:text-white transition-colors">
-                الوثائق
-              </a>
-            </div>
-          </div>
-        </nav>
-
-        {/* Content */}
-        <div className="pt-16">
+    <html lang="ar" dir="rtl" className="dark">
+      <body className={`${cairo.className} antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100`}>
+        <Navbar />
+        <main className="min-h-screen">
           {children}
-        </div>
+        </main>
+        <Footer />
       </body>
     </html>
   );

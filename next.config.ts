@@ -1,10 +1,16 @@
 import type { NextConfig } from "next";
+import createMDX from '@next/mdx'
 
 const nextConfig: NextConfig = {
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   images: {
     remotePatterns: [],
     formats: ['image/webp', 'image/avif'],
   },
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  // Add markdown plugins here if needed
+})
+
+export default withMDX(nextConfig);

@@ -1,86 +1,31 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-/* Exact OpenClaw.ai base styles */
-body {
-  background: #000000;
-  color: #ffffff;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  -webkit-font-smoothing: antialiased;
+@theme {
+  /* Custom gradient colors */
+  --color-gradient-start: #3b82f6;
+  --color-gradient-end: #9333ea;
 }
 
-/* Arabic font */
-.font-arabic {
-  font-family: 'Noto Sans Arabic', system-ui, sans-serif;
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
-/* Exact OpenClaw animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--color-gradient-start) 0%, var(--color-gradient-end) 100%);
 }
 
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Code blocks styling */
+pre {
+  @apply rounded-lg p-4 overflow-x-auto;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+code {
+  @apply text-sm;
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.6s ease-out;
-}
-
-.animate-slideUp {
-  animation: slideUp 0.6s ease-out;
-}
-
-.logo-pulse {
-  animation: pulse 3s ease-in-out infinite;
-}
-
-/* Exact OpenClaw card style */
-.openclaw-card {
-  background: linear-gradient(135deg, rgba(24, 24, 27, 0.8) 0%, rgba(39, 39, 42, 0.4) 100%);
-  border: 1px solid rgba(63, 63, 70, 0.5);
-  border-radius: 12px;
-  transition: all 0.2s ease;
-}
-
-.openclaw-card:hover {
-  transform: translateY(-2px);
-  border-color: rgba(239, 68, 68, 0.5);
-  box-shadow: 0 0 0 1px rgba(239, 68, 68, 0.1);
-}
-
-/* Section chevron */
-.section-chevron::before {
-  content: "❯";
-  color: #ef4444;
-  margin-left: 8px;
-  font-weight: 700;
-}
-
-[dir="rtl"] .section-chevron::before {
-  margin-left: 0;
-  margin-right: 8px;
-}
-
-/* Terminal exact style */
-.terminal-openclaw {
-  background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-  border: 1px solid #27272a;
-  border-radius: 12px;
-  padding: 24px;
-  font-family: 'SF Mono', Monaco, 'Courier New', monospace;
+/* Selection color */
+::selection {
+  @apply bg-blue-600 text-white;
 }
