@@ -63,7 +63,7 @@ export default function Home() {
           >
             <div className="text-4xl mb-4">📚</div>
             <h3 className="text-xl font-bold text-blue-900 dark:text-blue-100 mb-2">التوثيق</h3>
-            <p className="text-blue-700 dark:text-blue-300">دليل شامل لكل ما تحتاج معرفته</p>
+            <p className="text-blue-600 dark:text-blue-300">دليل شامل لكل ما تحتاج معرفته</p>
           </a>
 
           <a 
@@ -74,7 +74,7 @@ export default function Home() {
           >
             <div className="text-4xl mb-4">🛒</div>
             <h3 className="text-xl font-bold text-purple-900 dark:text-purple-100 mb-2">Marketplace</h3>
-            <p className="text-purple-700 dark:text-purple-300">اكتشف Skills جديدة وقوية</p>
+            <p className="text-purple-600 dark:text-purple-300">اكتشف Skills جديدة وقوية</p>
           </a>
 
           <Link 
