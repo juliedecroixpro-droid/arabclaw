@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
 import { Metadata } from 'next'
-import dynamic from 'next/dynamic'
+import ReactMarkdown from 'react-markdown'
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>
@@ -37,9 +37,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   if (!post) {
     notFound()
   }
-
-  // Dynamically import the MD file
-  const MDXContent = dynamic(() => import(`@/content/blog/${slug}.md`))
 
   // JSON-LD structured data for blog post
   const jsonLd = {
@@ -79,8 +76,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           </time>
         </header>
 
-        <div className="prose prose-lg dark:prose-invert max-w-none">
-          <MDXContent />
+        <div className="prose prose-lg dark:prose-invert max-w-none" dir="rtl">
+          <ReactMarkdown>{post.content}</ReactMarkdown>
         </div>
 
         <footer className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
