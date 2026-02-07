@@ -1,110 +1,129 @@
 import Link from 'next/link'
-import FeatureCard from '@/components/FeatureCard'
 
 export default function Home() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      {/* Hero Section */}
-      <section className="text-center py-20">
+    <div className="min-h-screen bg-white">
+      <div className="max-w-4xl mx-auto px-6 py-16 text-center">
+        {/* Logo */}
         <div className="flex justify-center mb-8">
-          <img 
-            src="/mascot.jpg" 
-            alt="OpenClaw Mascot" 
-            className="w-32 h-32 rounded-full shadow-2xl ring-4 ring-blue-600/20"
-          />
+          <div className="w-48 h-48 rounded-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center shadow-lg border-4 border-blue-200">
+            <img 
+              src="/mascot.jpg" 
+              alt="ArabClaw Mascot" 
+              className="w-40 h-40 rounded-full object-cover"
+            />
+          </div>
         </div>
-        
-        <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          OpenClaw بالعربية
+
+        {/* Titre */}
+        <h1 className="text-6xl font-bold text-gray-900 mb-8">
+          ArabClaw
         </h1>
-        
-        <p className="text-2xl md:text-3xl text-gray-600 dark:text-gray-400 mb-8">
-          أسهل طريقة لاستخدام الذكاء الاصطناعي
+
+        {/* Description */}
+        <p className="text-2xl text-gray-600 leading-relaxed mb-4" dir="rtl">
+          بوابة عبر أنظمة التشغيل لوكلاء الذكاء الاصطناعي عبر WhatsApp و Telegram و Discord و iMessage والمزيد
         </p>
-        
-        <Link 
-          href="/install"
-          className="inline-block px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white font-bold rounded-full text-lg hover:shadow-2xl hover:scale-105 transition-all"
-        >
-          ابدأ الآن
-        </Link>
-      </section>
 
-      {/* Features Section */}
-      <section className="py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <FeatureCard
-            icon="⚡"
-            title="تثبيت سهل"
-            description="ثبّت OpenClaw في دقائق معدودة بأمر واحد فقط. لا تعقيدات، لا صداع."
-          />
-          <FeatureCard
-            icon="🎯"
-            title="Skills بالعربية"
-            description="مكتبة ضخمة من الـ Skills المصممة خصيصاً للمستخدمين العرب."
-          />
-          <FeatureCard
-            icon="🤝"
-            title="مجتمع عربي"
-            description="انضم لمجتمع نابض بالحياة من المطورين والمستخدمين العرب."
-          />
+        {/* Citation */}
+        <p className="text-lg text-gray-400 italic mb-16" dir="rtl">
+          "EXFOLIATE! EXFOLIATE!" — جراد البحر الفخري على الأربح
+        </p>
+
+        {/* Section "ما هو OpenClaw?" */}
+        <div className="text-right mb-16" dir="rtl">
+          <div className="bg-blue-50 border-l-4 border-blue-500 p-8 rounded-r-lg">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              ما هو OpenClaw؟
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              OpenClaw هو إطار عمل مفتوح المصدر يجول Claude Sonnet وغيره من نماذج اللغة الكبيرة إلى وكلاء ذكاء اصطناعي شخصيين يمكنهم التفاعل عبر منصات المراسلة المفضلة لديك.
+            </p>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              يعمل OpenClaw كجواية بين عالم الذكاء الاصطناعي وتطبيقات المراسلة اليومية، مما يتيح لك التواصل مع وكيلك الذكي من أي مكان.
+            </p>
+          </div>
         </div>
-      </section>
 
-      {/* Quick Links Section */}
-      <section className="py-16">
-        <h2 className="text-3xl font-bold text-center mb-12">روابط سريعة</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <a 
+        {/* Section "هل OpenClaw مجاني؟" */}
+        <div className="text-right mb-16" dir="rtl">
+          <div className="bg-green-50 border-l-4 border-green-500 p-8 rounded-r-lg">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              هل OpenClaw مجاني؟
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed mb-4">
+              نعم، OpenClaw مفتوح المصدر ومجاني تماماً. ومع ذلك، قد تحتاج إلى دفع تكاليف:
+            </p>
+            <ul className="text-lg text-gray-700 space-y-2 mr-6">
+              <li>• API keys لنماذج الذكاء الاصطناعي (Anthropic، OpenAI)</li>
+              <li>• الاستضافة (إذا شغلت على السحابة)</li>
+              <li>• بعض خدمات القنوات (WhatsApp Business API)</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Section "حقيقة ممتعة" */}
+        <div className="text-right mb-16" dir="rtl">
+          <div className="bg-purple-50 border-l-4 border-purple-500 p-8 rounded-r-lg">
+            <h2 className="text-3xl font-bold text-gray-900 mb-6">
+              حقيقة ممتعة 🦞
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              تاليعة OpenClaw هو جراد البحر. لماذا؟ لأن الجراد يمسك ويتمسك بالأشياء - تماماً كما يتمسك OpenClaw بسياقك ومحادثاتك. زائد، الجراد رائع.
+            </p>
+          </div>
+        </div>
+
+        {/* Liens rapides */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+          <a
             href="https://docs.arabclaw.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950 dark:to-blue-900 border border-blue-200 dark:border-blue-800 hover:shadow-xl transition-all hover:scale-105"
+            className="p-8 border-2 border-gray-200 rounded-xl bg-white hover:border-blue-500 hover:shadow-lg transition-all"
           >
-            <div className="text-4xl mb-4">📚</div>
-            <h3 className="text-xl font-bold text-blue-900 dark:text-blue-100 mb-2">التوثيق</h3>
-            <p className="text-blue-600 dark:text-blue-300">دليل شامل لكل ما تحتاج معرفته</p>
+            <div className="text-5xl mb-4">📚</div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">التوثيق</h3>
+            <p className="text-gray-600">دليل شامل لكل ما تحتاج معرفته</p>
           </a>
 
-          <a 
+          <a
             href="https://marketplace.arabclaw.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950 dark:to-purple-900 border border-purple-200 dark:border-purple-800 hover:shadow-xl transition-all hover:scale-105"
+            className="p-8 border-2 border-gray-200 rounded-xl bg-white hover:border-blue-500 hover:shadow-lg transition-all"
           >
-            <div className="text-4xl mb-4">🛒</div>
-            <h3 className="text-xl font-bold text-purple-900 dark:text-purple-100 mb-2">Marketplace</h3>
-            <p className="text-purple-600 dark:text-purple-300">اكتشف Skills جديدة وقوية</p>
+            <div className="text-5xl mb-4">🛒</div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">Marketplace</h3>
+            <p className="text-gray-600">اكتشف Skills جديدة وقوية</p>
           </a>
 
-          <Link 
+          <Link
             href="/blog"
-            className="p-8 rounded-2xl bg-gradient-to-br from-pink-50 to-pink-100 dark:from-pink-950 dark:to-pink-900 border border-pink-200 dark:border-pink-800 hover:shadow-xl transition-all hover:scale-105"
+            className="p-8 border-2 border-gray-200 rounded-xl bg-white hover:border-blue-500 hover:shadow-lg transition-all"
           >
-            <div className="text-4xl mb-4">📝</div>
-            <h3 className="text-xl font-bold text-pink-900 dark:text-pink-100 mb-2">المدونة</h3>
-            <p className="text-pink-700 dark:text-pink-300">نصائح، دروس، وآخر الأخبار</p>
+            <div className="text-5xl mb-4">📝</div>
+            <h3 className="text-xl font-bold text-gray-900 mb-2">المدونة</h3>
+            <p className="text-gray-600">نصائح، دروس، وآخر الأخبار</p>
           </Link>
         </div>
-      </section>
 
-      {/* CTA Section */}
-      <section className="py-20 text-center">
-        <div className="p-12 rounded-3xl bg-gradient-to-r from-blue-600 to-purple-600">
-          <h2 className="text-4xl font-bold text-white mb-6">
+        {/* CTA final */}
+        <div className="border-2 border-blue-500 rounded-xl p-12 bg-blue-50">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6" dir="rtl">
             جاهز للبدء؟
           </h2>
-          <p className="text-xl text-white/90 mb-8">
+          <p className="text-xl text-gray-700 mb-8" dir="rtl">
             انضم لآلاف المستخدمين العرب الذين يستخدمون OpenClaw يومياً
           </p>
-          <Link 
+          <Link
             href="/install"
-            className="inline-block px-8 py-4 bg-white text-blue-600 font-bold rounded-full text-lg hover:shadow-2xl hover:scale-105 transition-all"
+            className="inline-block px-8 py-4 bg-gradient-to-br from-blue-500 to-blue-600 text-white font-bold rounded-lg text-lg hover:shadow-xl hover:scale-105 transition-all"
           >
             ابدأ التثبيت الآن
           </Link>
         </div>
-      </section>
+      </div>
     </div>
   )
 }

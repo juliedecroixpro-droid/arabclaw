@@ -47,9 +47,33 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "ArabClaw",
+    "alternateName": "OpenClaw بالعربية",
+    "url": "https://arabclaw.com",
+    "description": "أسهل طريقة لاستخدام الذكاء الاصطناعي بالعربية - OpenClaw باللغة العربية",
+    "inLanguage": "ar",
+    "publisher": {
+      "@type": "Organization",
+      "name": "ArabClaw Team",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://arabclaw.com/mascot.jpg"
+      }
+    }
+  };
+
   return (
-    <html lang="ar" dir="rtl" className="dark">
-      <body className={`${cairo.className} antialiased bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100`}>
+    <html lang="ar" dir="rtl">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
+      <body className={`${cairo.className} antialiased bg-white text-gray-900`}>
         <Navbar />
         <main className="min-h-screen">
           {children}
