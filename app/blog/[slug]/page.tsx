@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation'
 import { getAllPosts, getPostBySlug } from '@/lib/blog'
 import { Metadata } from 'next'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>
@@ -77,7 +78,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
         </header>
 
         <div className="prose prose-lg dark:prose-invert max-w-none" dir="rtl">
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+          <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.content}</ReactMarkdown>
         </div>
 
         <footer className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
