@@ -38,8 +38,8 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound()
   }
 
-  // Dynamically import the MDX file
-  const MDXContent = dynamic(() => import(`@/content/blog/${slug}.mdx`))
+  // Dynamically import the MD file
+  const MDXContent = dynamic(() => import(`@/content/blog/${slug}.md`))
 
   // JSON-LD structured data for blog post
   const jsonLd = {
