@@ -1,10 +1,8 @@
 ---
 title: "كيفية تثبيت OpenClaw على خادم VPS"
-date: "2026-02-10"
 excerpt: "دليل شامل لتثبيت وتشغيل OpenClaw على خادم VPS باستخدام Docker مع الاحتفاظ بالبيانات والعمل على مدار الساعة"
-author: "فريق OpenClaw العربي"
-tags: ["openclaw", "vps", "docker", "تثبيت", "استضافة"]
-image: "/images/blog/openclaw-vps.jpg"
+date: "2026-02-10"
+author: "فريق ArabClaw"
 ---
 
 # كيفية تثبيت OpenClaw على خادم VPS
